@@ -71,6 +71,7 @@ forest <- function(data,
                    upper,
                    sizes = 0.4,
                    ref_line = ifelse(x_trans %in% c("log", "log2", "log10"), 1, 0),
+                   ref_line_z = 0,
                    vert_line = NULL,
                    ci_column,
                    is_summary = NULL,
@@ -410,7 +411,7 @@ forest <- function(data,
                                     x_trans = x_trans[idx]),
                           t = 2,
                           l = j,
-                          b = tot_row, r = j,
+                          b = tot_row, r = j, z = ref_line_z
                           clip = "off",
                           name = paste0("ref.line-", j))
 
