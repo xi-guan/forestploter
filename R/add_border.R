@@ -25,7 +25,8 @@ add_border <- function(plot,
                        col = NULL,
                        part = c("body", "header"),
                        where = c("bottom", "left", "top", "right"),
-                       gp = gpar(lwd = 2.0)){
+                       gp = gpar(lwd = 2.0),
+                       offset = 0.05 ){
 
   if(!inherits(plot, "forestplot"))
     stop("plot must be a forestplot object.")
@@ -73,10 +74,12 @@ add_border <- function(plot,
 
   for(i in seq_along(row)){
     for(j in seq_along(col)){
-      seg_gb <- segmentsGrob(x0 = pos_vec[1],
+      x0_offset <- if (j == 1) offset else 0
+      x1_offset <- if (j == length(col)) offset else 0
+      seg_gb <- segmentsGrob(x0 = pos_vec[1] + x0_offset,
                              y0 = pos_vec[2],
                              x1 = pos_vec[3],
-                             y1 = pos_vec[4],
+                             y1 = pos_vec[4] - x1_offset,
                              gp = gp,
                              name = "border")
 
