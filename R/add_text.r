@@ -35,7 +35,8 @@ add_text <- function(plot,
                      just = c("center", "left", "right"),
                      gp = gpar(),
                      padding = unit(1, "mm"),
-                     parse = FALSE){
+                     parse = FALSE,
+                     vjust = 0.5){
   
   if(parse)
     text <- tryCatch(parse(text = text), error = function(e) text)
@@ -83,6 +84,7 @@ add_text <- function(plot,
   txt_grob <- textGrob(label = text,
                        gp = gp,
                        x = tx_x,
+                       vjust = vjust,
                        just = just,
                        check.overlap = TRUE,
                        name = "custom-text.add")
