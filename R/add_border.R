@@ -78,8 +78,8 @@ add_border <- function(plot,
       x1_offset <- if (j == length(col)) offset else 0
       seg_gb <- segmentsGrob(x0 = pos_vec[1] + x0_offset,
                              y0 = pos_vec[2],
-                             x1 = pos_vec[3],
-                             y1 = pos_vec[4] - x1_offset,
+                             x1 = pos_vec[3] - x1_offset,
+                             y1 = pos_vec[4],
                              gp = gp,
                              name = "border")
 
