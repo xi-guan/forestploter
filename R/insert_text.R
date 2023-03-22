@@ -35,7 +35,8 @@ insert_text <- function(plot,
                         before = TRUE,
                         gp = gpar(),
                         padding = unit(1, "mm"),
-                        parse = FALSE){
+                        parse = FALSE,
+                        vjust = 0.5){
 
   if(parse)
     text <- tryCatch(parse(text = text), error = function(e) text)
@@ -116,6 +117,7 @@ insert_text <- function(plot,
                              gp = gp,
                              x = tx_x,
                              just = just,
+                             vjust = vjust,
                              check.overlap = TRUE,
                              name = "custom-text.insert")
 
@@ -133,6 +135,7 @@ insert_text <- function(plot,
                            gp = gp,
                            x = tx_x,
                            just = just,
+                           vjust = vjust,
                            check.overlap = TRUE,
                            name = "custom-text.insert")
 
